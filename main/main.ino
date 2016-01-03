@@ -53,12 +53,12 @@ Updated to Arduino 1.6.4 5/2015
 
 SFE_TSL2561 light;
 
-unsigned int indicatorLight = 13;
-
 // Global variables:
 
 boolean gain;     // Gain setting, 0 = X1, 1 = X16;
 unsigned int ms;  // Integration ("shutter") time in milliseconds
+unsigned int dataResolution = 30000; // Miliseconds between console logs
+unsigned int indicatorLight = 13; // Pin 13 for onboard indicator light.
 
 void setup()
 {
@@ -149,7 +149,7 @@ void loop()
   
   ms = 1000;
   // light.manualStart();
-  delay(ms);
+  delay(dataResolution);
   // light.manualStop();
   
   // Once integration is complete, we'll retrieve the data.
